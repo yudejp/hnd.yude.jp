@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  server:
+    image: ghcr.io/gotify/server
+    container_name: gotify
+    restart: always
+    volumes:
+      - ./data:/app/data
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      - GOTIFY_DEFAULTUSER_PASS=custom
+
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    user: root
+    restart: always
+    command: tunnel --url http://server --no-chunked-encoding run gotify.yude.jp
+    volumes:
+      - '/root/.cloudflared:/root/.cloudflared'

@@ -1,0 +1,23 @@
+# www2-yude-jp
+www2-yude-jp/html
+
+# shadowbanalerts
+shadowbanalerts/ShadowbanAlerts.json
+
+# hedgedoc
+hedgedoc/app
+hedgedoc/data
+hedgedoc/config.json
+
+# gotify
+gotify/data
+
+# gitea-soine-site
+gitea-soine-site/data
+
+# dtv
+dtv/epgstation/data
+dtv/epgstation/logs
+dtv/epgstation/thumbnail
+dtv/epgs-to-discord/config.toml
+dtv/recorded

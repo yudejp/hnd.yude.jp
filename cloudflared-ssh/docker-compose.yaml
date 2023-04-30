@@ -1,0 +1,10 @@
+services:
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    user: root
+    restart: unless-stopped
+    command: tunnel --url ssh://host.docker.internal:22 --no-chunked-encoding run s-bway-ssh.yude.jp
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    volumes:
+      - '/root/.cloudflared:/root/.cloudflared'

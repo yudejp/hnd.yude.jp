@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  caddy:
+    image: caddy
+    restart: always
+    volumes:
+      - ./html:/usr/share/caddy
+      - ./Caddyfile:/etc/caddy/Caddyfile
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    user: root
+    restart: always
+    command: tunnel --url http://caddy --no-chunked-encoding run www2.yude.jp
+    volumes:
+      - '/root/.cloudflared:/root/.cloudflared'
