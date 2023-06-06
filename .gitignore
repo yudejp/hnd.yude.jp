@@ -21,3 +21,6 @@ dtv/epgstation/logs
 dtv/epgstation/thumbnail
 dtv/epgs-to-discord/config.toml
 dtv/recorded
+
+# smokeping
+smokeping/data
