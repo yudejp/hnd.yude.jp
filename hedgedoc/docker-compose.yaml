@@ -31,6 +31,4 @@ services:
     image: cloudflare/cloudflared:latest
     user: root
     restart: always
-    command: tunnel --url http://app:3000 --no-chunked-encoding run docs.soine.site
-    volumes:
-      - '/root/.cloudflared:/root/.cloudflared'
+    command: tunnel --no-autoupdate run --token $CLOUDFLARED_TOKEN

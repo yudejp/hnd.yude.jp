@@ -31,18 +31,14 @@ services:
     volumes:
       - ./data/postgres:/var/lib/postgresql/data
 
-  cloudflared:
+  cloudflared-web:
     image: cloudflare/cloudflared:latest
     user: root
-    restart: unless-stopped
-    command: tunnel --url http://server:3000 --no-chunked-encoding run git.soine.site
-    volumes:
-      - '/root/.cloudflared:/root/.cloudflared'
+    restart: always
+    command: tunnel --no-autoupdate run --token $CLOUDFLARED_TOKEN_WEB
 
-  cloudflared-ssh:
+  cloudflared-git-ssh:
     image: cloudflare/cloudflared:latest
     user: root
-    restart: unless-stopped
-    command: tunnel --url ssh://server:22 --no-chunked-encoding run git-ssh.soine.site
-    volumes:
-      - '/root/.cloudflared:/root/.cloudflared'
+    restart: always
+    command: tunnel --no-autoupdate run --token $CLOUDFLARED_TOKEN_GIT_SSH
