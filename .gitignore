@@ -1,3 +1,6 @@
+# Credentials
+*.env*
+
 # www2-yude-jp
 www2-yude-jp/html
 
@@ -24,3 +27,27 @@ dtv/recorded
 
 # smokeping
 smokeping/data
+
+# automuteus
+automuteus/db
+automuteus/redis
+
+# misskey.yude.jp
+misskey.yude.jp/db
+misskey.yude.jp/files
+misskey.yude.jp/redis
+
+# shlink
+shlink/db
+
+# youbine
+youbine/data
+
+# roundcube
+roundcube/db
+
+# 200ok
+200ok/config.toml
+
+# annict-activity-to-mastodon
+annict-activity-to-mastodon/config.toml
